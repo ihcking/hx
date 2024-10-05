@@ -330,17 +330,79 @@
                 <!-- <a href="https://github.com/WebStackPage/WebStackPage.github.io" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a> -->
 
             </nav>
-			     <div class="search-container">
-        <div class="search-box">
-            <input type="text" id="search-text" placeholder="输入关键字搜索">
-            <button type="submit">搜索</button>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+       .search-frame {
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 300px;
+            margin-bottom: 10px;
+        }
+
+       .search-options {
+            display: flex;
+            justify-content: space-between;
+            width: 300px;
+        }
+
+        input[type="radio"] {
+            display: none;
+        }
+
+        label {
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="radio"]:checked+label {
+            background-color: #007BFF;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="search-frame">
+        <input type="text" placeholder="输入关键字搜索">
+        <div class="search-options">
+            <label for="baidu">百度</label>
+            <input type="radio" name="search-engine" id="baidu" value="https://www.baidu.com/s?wd=" checked>
+            <label for="google">谷歌</label>
+            <input type="radio" name="search-engine" id="google" value="https://www.google.com/search?q=">
+            <label for="sogou">搜狗</label>
+            <input type="radio" name="search-engine" id="sogou" value="https://www.sogou.com/web?query=">
+            <label for="bing">必应</label>
+            <input type="radio" name="search-engine" id="bing" value="https://cn.bing.com/search?q=">
+            <label for="kuake">夸克</label>
+            <input type="radio" name="search-engine" id="kuake" value="https://quark.sm.cn/s?q=">
+            <label for="toutiao">头条</label>
+            <input type="radio" name="search-engine" id="toutiao" value="https://so.toutiao.com/search/?keyword=">
         </div>
-        <div class="search-types">
-            <label for="type-baidu">百度</label>
-            <input type="radio" name="type" id="type-baidu" value="https://www.baidu.com/s?wd=">
-            <!-- 其他搜索类型的标签和输入项 -->
-        </div>
+        <button>搜索</button>
     </div>
+</body>
             <!-- 常用推荐 -->
             <h4 class="text-gray"><i class="linecons-tag" style="margin-right: 7px;" id="常用推荐"></i>常用推荐</h4>
             <div class="row">
