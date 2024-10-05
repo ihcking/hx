@@ -330,7 +330,40 @@
                 <!-- <a href="https://github.com/WebStackPage/WebStackPage.github.io" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a> -->
 
             </nav>
-			    <div class="header-big mb-4">
+			    <header class="navbar navbar-dark fixed-top">
+        <div class="weather">
+            <div id="he-plugin-simple" style="display: contents;"></div>
+            <script>
+                WIDGET = {
+                    "CONFIG": {
+                        "modules": "02",
+                        "background": "5",
+                        "tmpColor": "FFFFFF",
+                        "tmpSize": "20",
+                        "cityColor": "FFFFFF",
+                        "citySize": "16",
+                        "aqiColor": "FFFFFF",
+                        "aqiSize": "16",
+                        "weatherIconSize": "30",
+                        "alertIconSize": "18",
+                        "padding": "0px 5px 0px 5px",
+                        "shadow": "0",
+                        "language": "auto",
+                        "fixed": "false",
+                        "vertical": "top",
+                        "horizontal": "left",
+                        "key": "257fe54e3a0b4cd29b399d2831bd56e0"
+                    }
+                }
+            </script>
+            <script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0" defer=""></script>
+        </div>
+        <ul class="nav navbar-menu">
+            <li class="nav-login ml-3"> <a href="../" class="text-light" title="主页"><i
+                        class="iconfont icon-home bookmark-ico icon-2x" style="font-size: 1.5em; position: relative; left: -10px; top: 0px;"></i></a> </li>
+        </ul>
+    </header>
+			<div class="header-big mb-4">
         <div class="s-search">
             <div id="search" class="s-search mx-auto">
                 <div class="big-title text-center mb-3 mb-md-5 mt-2">
