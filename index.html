@@ -37,7 +37,6 @@
             line-height: 1.6;
             overflow-x: hidden;
             height: 100vh;
-            overflow: hidden;
         }
         
         .container {
@@ -504,18 +503,17 @@
         
         /* B站直播页面样式 - 完全重写以增大直播区域 */
         .bilibili-container {
-            max-width: 100%;
+            max-width: 1600px;
             margin: 0 auto;
-            padding: 0 20px;
-            height: calc(100vh - 180px);
+            padding: 0 40px;
             display: flex;
             flex-direction: column;
+            height: 100%;
         }
         
         .bilibili-header {
             text-align: center;
             margin-bottom: 30px;
-            padding: 0 20px;
         }
         
         .bilibili-header h2 {
@@ -531,7 +529,7 @@
             margin: 0 auto;
         }
         
-        /* 直播播放器容器 - 增大尺寸，占据更多空间 */
+        /* 直播播放器容器 - 16:9比例，占据更多空间 */
         .bilibili-player-container {
             flex: 1;
             display: flex;
@@ -545,12 +543,11 @@
         .bilibili-player-wrapper {
             width: 100%;
             max-width: 1400px;
-            height: 100%;
-            max-height: 80vh;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: var(--shadow-medium);
             position: relative;
+            padding-top: 56.25%; /* 16:9 比例 */
         }
         
         .adaptive-iframe {
@@ -1069,7 +1066,6 @@
             /* 直播页面平板端适配 */
             .bilibili-player-wrapper {
                 max-width: 1000px;
-                max-height: 70vh;
             }
             
             .bilibili-links {
@@ -1091,6 +1087,7 @@
             .home-page, .links-page, .bilibili-page {
                 padding-top: 80px;
                 height: calc(100vh - 80px);
+                overflow-y: auto;
             }
             
             /* 导航栏移动端适配 */
@@ -1197,8 +1194,8 @@
             
             /* 直播页面移动端适配 */
             .bilibili-container {
-                height: calc(100vh - 150px);
                 padding: 0 15px;
+                height: auto;
             }
             
             .bilibili-header {
@@ -1219,8 +1216,8 @@
             }
             
             .bilibili-player-wrapper {
-                max-height: 60vh;
-                border-radius: 10px;
+                max-width: 100%;
+                padding-top: 56.25%; /* 保持16:9比例 */
             }
             
             .bilibili-links {
@@ -1308,7 +1305,6 @@
             
             /* 直播页面小屏幕适配 */
             .bilibili-container {
-                height: calc(100vh - 140px);
                 padding: 0 10px;
             }
             
@@ -1318,10 +1314,6 @@
             
             .bilibili-header p {
                 font-size: 0.9rem;
-            }
-            
-            .bilibili-player-wrapper {
-                max-height: 50vh;
             }
             
             .bilibili-links {
