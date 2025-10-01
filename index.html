@@ -536,7 +536,7 @@
         
         .bilibili-player-wrapper {
             width: 100%;
-            max-width: 1000px;
+            max-width: 1200px;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: var(--shadow-medium);
@@ -987,6 +987,11 @@
                 padding: 0 20px;
             }
             
+            /* 修复移动端导航栏遮挡内容问题 */
+            .home-page, .links-page, .bilibili-page {
+                padding-top: 80px;
+            }
+            
             /* 导航栏移动端适配 */
             .nav-links {
                 display: none;
@@ -1070,6 +1075,7 @@
                 font-size: 1.1rem;
             }
             
+            /* 修复移动端banner显示问题 */
             .banner-slide {
                 height: 200px;
             }
@@ -1431,13 +1437,15 @@
                 
                 <div class="bilibili-player-container">
                     <div class="bilibili-player-wrapper card-hover">
+                        <!-- 修复移动端直播播放问题，使用更兼容的嵌入代码 -->
                         <iframe class="adaptive-iframe" 
                                 src="https://www.bilibili.com/blackboard/live/live-activity-player.html?cid=30778828&quality=0" 
                                 frameborder="no" 
                                 framespacing="0" 
                                 scrolling="no" 
                                 allow="autoplay; encrypted-media" 
-                                allowfullscreen="true">
+                                allowfullscreen="true"
+                                sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
                         </iframe>
                     </div>
                 </div>
