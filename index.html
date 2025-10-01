@@ -1142,27 +1142,36 @@
                 font-size: 1.2rem;
             }
             
-            /* 音乐播放器移动端适配 */
+            /* 音乐播放器移动端适配 - 修复播放按钮被遮住问题 */
             .music-player {
                 height: auto;
                 min-height: 340px;
                 padding: 20px;
+                margin-bottom: 20px;
             }
             
             .player-controls {
                 flex-direction: column;
                 align-items: flex-start;
+                gap: 15px;
             }
             
             .control-buttons {
                 margin-top: 15px;
                 width: 100%;
                 justify-content: space-around;
+                order: 2;
             }
             
-            /* 链接页面移动端适配 */
+            .song-info {
+                order: 1;
+                width: 100%;
+            }
+            
+            /* 链接页面移动端适配 - 改为两列显示 */
             .links-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
             }
             
             .links-header h2, .bilibili-header h2 {
@@ -1174,6 +1183,10 @@
             }
             
             /* 修复移动端banner显示问题 */
+            .banner-container {
+                margin-bottom: 30px;
+            }
+            
             .banner-slide {
                 height: 200px;
             }
@@ -1220,14 +1233,18 @@
                 padding-top: 56.25%; /* 保持16:9比例 */
             }
             
+            /* 修复移动端直播页面底部导航栏排版 */
             .bilibili-links {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
                 gap: 10px;
                 padding: 0 10px 20px;
             }
             
             .bilibili-link-card {
-                min-width: 140px;
+                min-width: auto;
                 padding: 10px 12px;
+                justify-content: flex-start;
             }
             
             .bilibili-link-icon {
@@ -1241,6 +1258,7 @@
                 font-size: 0.9rem;
             }
             
+            /* 修复移动端滚动指示器位置 */
             .scroll-indicator {
                 bottom: 20px;
                 font-size: 0.8rem;
@@ -1317,8 +1335,7 @@
             }
             
             .bilibili-links {
-                flex-direction: column;
-                align-items: center;
+                grid-template-columns: 1fr;
                 gap: 8px;
             }
             
@@ -1326,6 +1343,7 @@
                 width: 100%;
                 max-width: 250px;
                 min-width: auto;
+                margin: 0 auto;
             }
         }
     </style>
