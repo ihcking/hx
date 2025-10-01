@@ -40,10 +40,10 @@
         }
         
         /* 统一所有页面的容器宽度 */
-        .container, .links-container, .bilibili-container {
-            max-width: 1400px;
+        .container {
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 20px;
         }
         
         /* 导航栏样式 */
@@ -143,6 +143,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            padding: 80px 0 20px;
         }
         
         .home-page {
@@ -155,7 +156,6 @@
             background-color: var(--bg-white);
             transform: translateY(100%);
             overflow-y: auto;
-            padding: 120px 0 50px;
             z-index: 2;
         }
         
@@ -163,7 +163,6 @@
             background-color: var(--bg-white);
             transform: translateY(200%);
             overflow-y: auto;
-            padding: 120px 0 50px;
             z-index: 3;
         }
         
@@ -181,6 +180,7 @@
             flex-direction: column;
             align-items: center;
             gap: 20px;
+            width: 100%;
         }
         
         /* 顶部内容区（只有音乐） */
@@ -189,7 +189,8 @@
             grid-template-columns: 1fr;
             gap: 20px;
             width: 100%;
-            max-width: 1200px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
         
         /* 音乐播放器样式 */
@@ -496,10 +497,10 @@
             margin: 0 auto;
         }
         
-        /* B站直播页面样式 - 完全重写以增大直播区域 */
+        /* B站直播页面样式 */
         .bilibili-header {
             text-align: center;
-            margin-bottom: 20px; /* 减少标题与播放器之间的间距 */
+            margin-bottom: 20px;
         }
         
         .bilibili-header h2 {
@@ -515,19 +516,19 @@
             margin: 0 auto;
         }
         
-        /* 直播播放器容器 - 16:9比例，占据更多空间 */
+        /* 直播播放器容器 */
         .bilibili-player-container {
             display: flex;
             justify-content: center;
             align-items: center;
             width: 100%;
             max-width: 100%;
-            margin-bottom: 20px; /* 减少与底部导航的间距 */
+            margin-bottom: 20px;
         }
         
         .bilibili-player-wrapper {
             width: 100%;
-            max-width: 1200px;
+            max-width: 1000px;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: var(--shadow-medium);
@@ -544,14 +545,14 @@
             border: none;
         }
         
-        /* 直播页面底部链接 - 上移并调整间距 */
+        /* 直播页面底部链接 */
         .bilibili-links {
             display: flex;
             justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
             padding: 0 20px 30px;
-            margin-top: 10px; /* 减少与播放器的间距 */
+            margin-top: 10px;
         }
         
         .bilibili-link-card {
@@ -873,7 +874,7 @@
         /* Banner轮播样式 */
         .banner-container {
             width: 100%;
-            max-width: 1400px;
+            max-width: 1000px;
             margin: 0 auto 50px;
             position: relative;
             overflow: hidden;
@@ -1051,7 +1052,7 @@
             
             /* 直播页面平板端适配 */
             .bilibili-player-wrapper {
-                max-width: 1000px;
+                max-width: 800px;
             }
             
             .bilibili-links {
@@ -1065,12 +1066,12 @@
         }
 
         @media (max-width: 768px) {
-            .container, .links-container, .bilibili-container {
-                padding: 0 20px;
+            .container {
+                padding: 0 15px;
             }
             
             /* 修复移动端导航栏遮挡内容问题 */
-            .home-page, .links-page, .bilibili-page {
+            .page {
                 padding-top: 80px;
                 height: calc(100vh - 80px);
                 overflow-y: auto;
@@ -1171,6 +1172,7 @@
             /* 修复移动端banner显示问题 */
             .banner-container {
                 margin-bottom: 30px;
+                max-width: 100%;
             }
             
             .banner-slide {
@@ -1476,7 +1478,7 @@
 
         <!-- 网址导航页面 -->
         <section id="links-page" class="page links-page inactive">
-            <div class="links-container">
+            <div class="container">
                 <!-- Banner轮播模块 -->
                 <div class="banner-container card-hover">
                     <div class="banner-slider" id="bannerSlider">
@@ -1600,7 +1602,7 @@
 
         <!-- B站直播页面 -->
         <section id="bilibili-page" class="page bilibili-page inactive">
-            <div class="bilibili-container">
+            <div class="container">
                 <div class="bilibili-header">
                     <h2 class="gradient-text">B站直播</h2>
                     <p>观看精彩的B站直播内容，与主播互动交流</p>
