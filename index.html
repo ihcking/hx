@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>寒潇 | 个人空间</title>
+    <title>寒潇 | 欢迎大家！</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* ============  原样式完全保留  ============ */
         :root {
             --primary-color: #3498db;
             --primary-dark: #2980b9;
@@ -24,24 +23,30 @@
             --transition: all 0.3s ease;
             --transition-slow: all 0.5s ease;
         }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
         }
+        
         body {
             background-color: var(--bg-light);
             color: var(--text-medium);
             line-height: 1.6;
             overflow-x: hidden;
             height: 100vh;
+            overflow: hidden;
         }
+        
         .container {
-            max-width: 1200px;
+            max-width: 1600px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 40px;
         }
+        
+        /* 导航栏样式 */
         header {
             background-color: rgba(255, 255, 255, 0.95);
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
@@ -52,12 +57,14 @@
             backdrop-filter: blur(10px);
             transition: var(--transition);
         }
+        
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px 0;
         }
+        
         .logo {
             font-size: 1.8rem;
             font-weight: 700;
@@ -65,17 +72,21 @@
             letter-spacing: -0.5px;
             transition: var(--transition);
         }
+        
         .logo:hover {
             color: var(--primary-color);
             transform: translateY(-2px);
         }
+        
         .nav-links {
             display: flex;
             list-style: none;
         }
+        
         .nav-links li {
             margin-left: 30px;
         }
+        
         .nav-links a {
             text-decoration: none;
             color: var(--text-medium);
@@ -84,9 +95,11 @@
             transition: var(--transition);
             position: relative;
         }
+        
         .nav-links a:hover {
             color: var(--primary-color);
         }
+        
         .nav-links a::after {
             content: '';
             position: absolute;
@@ -97,9 +110,12 @@
             background-color: var(--primary-color);
             transition: width 0.3s ease;
         }
+        
         .nav-links a:hover::after {
             width: 100%;
         }
+        
+        /* 移动端导航菜单 */
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -108,12 +124,15 @@
             color: var(--text-dark);
             cursor: pointer;
         }
+        
+        /* 页面容器样式 - 完全重写 */
         .pages-container {
             position: relative;
             width: 100%;
             height: 100vh;
             overflow: hidden;
         }
+        
         .page {
             position: absolute;
             top: 0;
@@ -124,46 +143,56 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 80px 0 20px;
         }
+        
         .home-page {
             background-color: var(--bg-light);
             transform: translateY(0);
             z-index: 1;
         }
+        
         .links-page {
             background-color: var(--bg-white);
             transform: translateY(100%);
             overflow-y: auto;
+            padding: 120px 0 50px;
             z-index: 2;
         }
+        
         .bilibili-page {
             background-color: var(--bg-white);
             transform: translateY(200%);
             overflow-y: auto;
+            padding: 120px 0 50px;
             z-index: 3;
         }
+        
         .page.active {
             transform: translateY(0);
         }
+        
         .page.inactive {
             transform: translateY(-100%);
         }
+        
+        /* 主内容区样式 */
         .main-content {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 20px;
-            width: 100%;
         }
+        
+        /* 顶部内容区（只有音乐） */
         .top-content {
             display: grid;
             grid-template-columns: 1fr;
             gap: 20px;
             width: 100%;
-            max-width: 1000px;
-            margin: 0 auto;
+            max-width: 1200px;
         }
+        
+        /* 音乐播放器样式 */
         .music-player {
             background: var(--bg-white);
             border-radius: var(--border-radius);
@@ -175,21 +204,25 @@
             flex-direction: column;
             justify-content: space-between;
         }
+        
         .music-player:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-medium);
         }
+        
         .player-controls {
             display: flex;
             align-items: center;
             justify-content: space-between;
             margin-bottom: 15px;
         }
+        
         .song-info {
             display: flex;
             align-items: center;
             flex: 1;
         }
+        
         .album-art {
             width: 50px;
             height: 50px;
@@ -204,9 +237,11 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             transition: var(--transition);
         }
+        
         .music-player:hover .album-art {
             transform: rotate(5deg) scale(1.05);
         }
+        
         .song-details h3 {
             font-size: 1rem;
             color: var(--text-dark);
@@ -216,6 +251,7 @@
             text-overflow: ellipsis;
             max-width: 200px;
         }
+        
         .song-details p {
             font-size: 0.8rem;
             color: var(--text-light);
@@ -224,10 +260,12 @@
             text-overflow: ellipsis;
             max-width: 200px;
         }
+        
         .control-buttons {
             display: flex;
             align-items: center;
         }
+        
         .control-btn {
             background: none;
             border: none;
@@ -243,23 +281,28 @@
             align-items: center;
             justify-content: center;
         }
+        
         .control-btn:hover {
             color: var(--primary-dark);
             transform: scale(1.1);
             background-color: rgba(52, 152, 219, 0.1);
         }
+        
         .play-btn {
             font-size: 1.5rem;
             background-color: var(--primary-color);
             color: white;
         }
+        
         .play-btn:hover {
             background-color: var(--primary-dark);
             color: white;
         }
+        
         .progress-container {
             margin-top: 10px;
         }
+        
         .progress-bar {
             width: 100%;
             height: 5px;
@@ -268,6 +311,7 @@
             overflow: hidden;
             cursor: pointer;
         }
+        
         .progress {
             height: 100%;
             background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
@@ -275,6 +319,7 @@
             border-radius: 3px;
             transition: width 0.1s ease;
         }
+        
         .time-info {
             display: flex;
             justify-content: space-between;
@@ -282,6 +327,8 @@
             font-size: 0.7rem;
             color: var(--text-light);
         }
+        
+        /* 音乐可视化效果 */
         .visualizer {
             display: flex;
             justify-content: space-between;
@@ -289,12 +336,15 @@
             height: 40px;
             margin-top: 10px;
         }
+        
         .bar {
             width: 4px;
             background: linear-gradient(to top, var(--primary-color), var(--secondary-color));
             border-radius: 2px;
             transition: height 0.3s ease;
         }
+        
+        /* 搜索区域样式 */
         .search-area {
             display: flex;
             flex-direction: column;
@@ -304,27 +354,32 @@
             width: 100%;
             max-width: 1000px;
         }
+        
         .welcome-section {
             text-align: center;
             margin-bottom: 30px;
         }
+        
         .welcome-section h1 {
             font-size: 3.2rem;
             margin-bottom: 15px;
             color: var(--text-dark);
             line-height: 1.2;
         }
+        
         .welcome-section p {
             font-size: 1.3rem;
             color: var(--text-medium);
             margin-bottom: 20px;
             max-width: 700px;
         }
+        
         .highlight {
             color: var(--primary-color);
             position: relative;
             display: inline-block;
         }
+        
         .highlight::after {
             content: '';
             position: absolute;
@@ -336,15 +391,19 @@
             z-index: -1;
             transition: height 0.3s ease;
         }
+        
         .highlight:hover::after {
             height: 15px;
         }
+        
+        /* 搜索框样式 */
         .search-container {
             margin: 20px 0;
             position: relative;
             max-width: 700px;
             width: 100%;
         }
+        
         .search-box {
             display: flex;
             box-shadow: var(--shadow-light);
@@ -352,10 +411,12 @@
             overflow: hidden;
             transition: var(--transition);
         }
+        
         .search-box:hover {
             transform: translateY(-3px);
             box-shadow: var(--shadow-medium);
         }
+        
         .search-input {
             flex-grow: 1;
             padding: 18px 30px;
@@ -364,6 +425,7 @@
             font-size: 1.1rem;
             background: var(--bg-white);
         }
+        
         .search-button {
             background: var(--primary-color);
             color: white;
@@ -374,9 +436,12 @@
             font-weight: 500;
             font-size: 1.1rem;
         }
+        
         .search-button:hover {
             background: var(--primary-dark);
         }
+        
+        /* 时间组件样式 */
         .time-widget {
             background: var(--bg-white);
             border-radius: var(--border-radius);
@@ -393,10 +458,12 @@
             max-width: 700px;
             margin: 20px auto;
         }
+        
         .time-widget:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-medium);
         }
+        
         .current-time {
             font-size: 2.8rem;
             font-weight: 700;
@@ -404,57 +471,80 @@
             letter-spacing: 2px;
             margin: 10px 0;
         }
+        
         .current-date {
             font-size: 1.4rem;
             color: var(--text-medium);
         }
+        
+        /* 网址导航完整页面样式 */
+        .links-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        
         .links-header {
             text-align: center;
             margin-bottom: 50px;
         }
+        
         .links-header h2 {
             font-size: 2.8rem;
             color: var(--text-dark);
             margin-bottom: 15px;
         }
+        
         .links-header p {
             font-size: 1.3rem;
             color: var(--text-medium);
             max-width: 700px;
             margin: 0 auto;
         }
+        
+        /* B站直播页面样式 - 增大主内容区域 */
+        .bilibili-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        
         .bilibili-header {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
         }
+        
         .bilibili-header h2 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             color: var(--text-dark);
             margin-bottom: 15px;
         }
+        
         .bilibili-header p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: var(--text-medium);
             max-width: 700px;
             margin: 0 auto;
         }
+        
+        /* 直播播放器容器 - 增大尺寸 */
         .bilibili-player-container {
             display: flex;
             justify-content: center;
-            align-items: center;
+            margin-bottom: 40px;
             width: 100%;
-            max-width: 100%;
-            margin-bottom: 20px;
         }
+        
         .bilibili-player-wrapper {
             width: 100%;
-            max-width: 1000px;
+            max-width: 1200px;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: var(--shadow-medium);
             position: relative;
             padding-top: 56.25%; /* 16:9 比例 */
         }
+        
         .adaptive-iframe {
             position: absolute;
             top: 0;
@@ -463,78 +553,14 @@
             height: 100%;
             border: none;
         }
-        .bilibili-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            padding: 0 20px 30px;
-            margin-top: 10px;
-        }
-        .bilibili-link-card {
-            display: flex;
-            align-items: center;
-            padding: 15px 20px;
-            background: var(--bg-lighter);
-            border-radius: 12px;
-            text-decoration: none;
-            color: var(--text-medium);
-            transition: var(--transition);
-            border: 1px solid var(--border-color);
-            height: 100%;
-            position: relative;
-            overflow: hidden;
-            min-width: 180px;
-        }
-        .bilibili-link-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: left 0.5s ease;
-        }
-        .bilibili-link-card:hover::before {
-            left: 100%;
-        }
-        .bilibili-link-card:hover {
-            background: #edf2f7;
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-light);
-            color: var(--text-dark);
-        }
-        .bilibili-link-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            background: var(--primary-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 12px;
-            color: white;
-            font-size: 1.1rem;
-            flex-shrink: 0;
-            transition: var(--transition);
-        }
-        .bilibili-link-card:hover .bilibili-link-icon {
-            transform: scale(1.1) rotate(5deg);
-        }
-        .bilibili-link-text {
-            font-weight: 500;
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-        .bilibili-link-card:hover .bilibili-link-text {
-            transform: translateX(5px);
-        }
+        
+        /* 导航网站改为四列分布 */
         .links-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 25px;
         }
+        
         .link-card {
             display: flex;
             align-items: center;
@@ -549,6 +575,7 @@
             position: relative;
             overflow: hidden;
         }
+        
         .link-card::before {
             content: '';
             position: absolute;
@@ -559,15 +586,18 @@
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
             transition: left 0.5s ease;
         }
+        
         .link-card:hover::before {
             left: 100%;
         }
+        
         .link-card:hover {
             background: #edf2f7;
             transform: translateY(-5px);
             box-shadow: var(--shadow-light);
             color: var(--text-dark);
         }
+        
         .link-icon {
             width: 50px;
             height: 50px;
@@ -582,17 +612,22 @@
             flex-shrink: 0;
             transition: var(--transition);
         }
+        
         .link-card:hover .link-icon {
             transform: scale(1.1) rotate(5deg);
         }
+        
         .link-text {
             font-weight: 500;
             font-size: 1.1rem;
             transition: var(--transition);
         }
+        
         .link-card:hover .link-text {
             transform: translateX(5px);
         }
+        
+        /* 页脚样式 */
         footer {
             text-align: center;
             padding: 25px 0;
@@ -601,20 +636,27 @@
             font-size: 0.9rem;
             border-top: 1px solid var(--border-color);
         }
+        
+        /* 动画效果 */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        
         .fade-in {
             animation: fadeIn 0.8s ease forwards;
         }
+        
         .delay-1 { animation-delay: 0.2s; opacity: 0; }
         .delay-2 { animation-delay: 0.4s; opacity: 0; }
         .delay-3 { animation-delay: 0.6s; opacity: 0; }
+        
+        /* 输入区域样式 */
         .input-container {
             margin-top: 10px;
             display: flex;
         }
+        
         .playlist-input, .song-id-input, .custom-url-input {
             flex: 1;
             padding: 8px 12px;
@@ -625,10 +667,12 @@
             transition: var(--transition);
             text-align: center;
         }
+        
         .playlist-input:focus, .song-id-input:focus, .custom-url-input:focus {
             border-color: var(--primary-color);
             box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
         }
+        
         .playlist-load-btn, .song-id-load-btn, .custom-url-load-btn {
             background: var(--primary-color);
             color: white;
@@ -642,9 +686,12 @@
             align-items: center;
             justify-content: center;
         }
+        
         .playlist-load-btn:hover, .song-id-load-btn:hover, .custom-url-load-btn:hover {
             background: var(--primary-dark);
         }
+        
+        /* 模式切换样式 */
         .mode-switcher {
             display: flex;
             margin-bottom: 10px;
@@ -652,6 +699,7 @@
             overflow: hidden;
             border: 1px solid var(--border-color);
         }
+        
         .mode-btn {
             flex: 1;
             padding: 8px 12px;
@@ -665,22 +713,30 @@
             align-items: center;
             justify-content: center;
         }
+        
         .mode-btn.active {
             background: var(--primary-color);
             color: white;
         }
+        
         .mode-btn:not(.active):hover {
             background: #edf2f7;
         }
+        
+        /* 输入区域容器 */
         .input-areas {
             margin-top: 10px;
         }
+        
         .input-area {
             display: none;
         }
+        
         .input-area.active {
             display: flex;
         }
+        
+        /* 状态消息样式 */
         .status-message-container {
             height: 50px;
             display: flex;
@@ -688,6 +744,7 @@
             justify-content: center;
             margin-top: 10px;
         }
+        
         .status-message {
             padding: 8px 12px;
             border-radius: 8px;
@@ -698,20 +755,25 @@
             transform: translateY(-10px);
             transition: var(--transition);
         }
+        
         .status-message.show {
             opacity: 1;
             transform: translateY(0);
         }
+        
         .status-success {
             background-color: #d4edda;
             color: #155724;
             border: 1px solid #c3e6cb;
         }
+        
         .status-error {
             background-color: #f8d7da;
             color: #721c24;
             border: 1px solid #f5c6cb;
         }
+        
+        /* 滚动指示器 */
         .scroll-indicator {
             position: absolute;
             bottom: 30px;
@@ -722,6 +784,7 @@
             font-size: 0.9rem;
             animation: bounce 2s infinite;
         }
+        
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% {
                 transform: translateY(0) translateX(-50%);
@@ -733,24 +796,29 @@
                 transform: translateY(-5px) translateX(-50%);
             }
         }
+        
         .scroll-indicator i {
             display: block;
             margin-top: 5px;
             font-size: 1.2rem;
         }
+        
+        /* Banner轮播样式 */
         .banner-container {
             width: 100%;
-            max-width: 1000px;
+            max-width: 1400px;
             margin: 0 auto 50px;
             position: relative;
             overflow: hidden;
             border-radius: 15px;
             box-shadow: var(--shadow-medium);
         }
+        
         .banner-slider {
             display: flex;
             transition: transform 0.5s ease;
         }
+        
         .banner-slide {
             min-width: 100%;
             height: 300px;
@@ -764,6 +832,7 @@
             overflow: hidden;
             cursor: pointer;
         }
+        
         .banner-slide::before {
             content: '';
             position: absolute;
@@ -774,21 +843,25 @@
             background: rgba(0, 0, 0, 0.4);
             z-index: 1;
         }
+        
         .banner-content {
             position: relative;
             z-index: 2;
             text-align: center;
             padding: 0 20px;
         }
+        
         .banner-content h3 {
             font-size: 2.5rem;
             margin-bottom: 15px;
         }
+        
         .banner-content p {
             font-size: 1.2rem;
             max-width: 600px;
             margin: 0 auto;
         }
+        
         .banner-dots {
             position: absolute;
             bottom: 20px;
@@ -798,6 +871,7 @@
             gap: 10px;
             z-index: 3;
         }
+        
         .banner-dot {
             width: 12px;
             height: 12px;
@@ -806,10 +880,12 @@
             cursor: pointer;
             transition: var(--transition);
         }
+        
         .banner-dot.active {
             background: white;
             transform: scale(1.2);
         }
+        
         .banner-nav {
             position: absolute;
             top: 50%;
@@ -828,18 +904,24 @@
             z-index: 3;
             font-size: 1.2rem;
         }
+        
         .banner-nav:hover {
             background: rgba(255, 255, 255, 0.3);
         }
+        
         .banner-prev {
             left: 20px;
         }
+        
         .banner-next {
             right: 20px;
         }
+        
+        /* 按钮脉冲效果 */
         .pulse {
             animation: pulse 2s infinite;
         }
+        
         @keyframes pulse {
             0% {
                 transform: scale(1);
@@ -854,100 +936,252 @@
                 box-shadow: 0 0 0 0 rgba(52, 152, 219, 0);
             }
         }
+        
+        /* 卡片悬浮效果 */
         .card-hover {
             transition: var(--transition);
         }
+        
         .card-hover:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-medium);
         }
+        
+        /* 文本渐变效果 */
         .gradient-text {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+        
+        /* 导航链接激活状态 */
         .nav-link.active {
             color: var(--primary-color);
         }
+        
         .nav-link.active::after {
             width: 100%;
         }
 
-        /* ==============  新增统一宽度  ============== */
-        .home-page .main-content,
-        .bilibili-page .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* ==============  移动端双列 + 排版修复  ============== */
-        @media (max-width: 768px) {
+        /* 移动端适配样式 */
+        @media (max-width: 1024px) {
             .links-grid {
-                grid-template-columns: repeat(2, 1fr) !important;
-                gap: 12px;
-            }
-            .music-player .player-controls {
-                flex-direction: row;
-                flex-wrap: wrap;
-            }
-            .music-player .control-buttons {
-                width: auto;
-                margin-left: auto;
-            }
-            .bilibili-player-wrapper {
-                padding-top: 56.25%;
-                height: auto;
-                min-height: 200px;
-            }
-            .banner-content h3 {
-                font-size: 1.5rem;
+                grid-template-columns: repeat(3, 1fr);
             }
             
-            /* ==============  移动端导航栏优化  ============== */
+            .banner-slide {
+                height: 250px;
+            }
+            
+            .banner-content h3 {
+                font-size: 2rem;
+            }
+            
+            .banner-content p {
+                font-size: 1rem;
+            }
+            
+            /* 直播页面平板端适配 */
+            .bilibili-player-wrapper {
+                max-width: 1000px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container, .links-container, .bilibili-container {
+                padding: 0 20px;
+            }
+            
+            /* 修复移动端导航栏遮挡内容问题 */
+            .home-page, .links-page, .bilibili-page {
+                padding-top: 80px;
+                height: calc(100vh - 80px);
+            }
+            
+            /* 导航栏移动端适配 */
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: rgba(255, 255, 255, 0.98);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                backdrop-filter: blur(10px);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
             .mobile-menu-btn {
                 display: block;
             }
             
-            .nav-links {
-                position: fixed;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background: var(--bg-white);
+            /* 首页内容移动端适配 */
+            .welcome-section h1 {
+                font-size: 2.5rem;
+            }
+            
+            .welcome-section p {
+                font-size: 1.1rem;
+            }
+            
+            .search-input {
+                padding: 15px 20px;
+            }
+            
+            .search-button {
+                padding: 0 20px;
+            }
+            
+            .current-time {
+                font-size: 2.2rem;
+            }
+            
+            .current-date {
+                font-size: 1.2rem;
+            }
+            
+            /* 音乐播放器移动端适配 */
+            .music-player {
+                height: auto;
+                min-height: 340px;
+                padding: 20px;
+            }
+            
+            .player-controls {
                 flex-direction: column;
-                align-items: center;
-                padding: 20px 0;
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-                transform: translateY(-100%);
-                opacity: 0;
-                transition: var(--transition);
-                z-index: 999;
+                align-items: flex-start;
             }
             
-            .nav-links.active {
-                transform: translateY(0);
-                opacity: 1;
+            .control-buttons {
+                margin-top: 15px;
+                width: 100%;
+                justify-content: space-around;
             }
             
-            .nav-links li {
-                margin: 15px 0;
+            /* 链接页面移动端适配 */
+            .links-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
             
-            /* 调整页面顶部内边距，避免被导航栏遮挡 */
-            .page {
-                padding-top: 100px;
+            .links-header h2, .bilibili-header h2 {
+                font-size: 2.2rem;
             }
             
-            /* 为首页添加额外内边距 */
-            .home-page {
-                padding-top: 120px;
+            .links-header p, .bilibili-header p {
+                font-size: 1.1rem;
+            }
+            
+            /* 修复移动端banner显示问题 */
+            .banner-slide {
+                height: 200px;
+            }
+            
+            .banner-content h3 {
+                font-size: 1.8rem;
+            }
+            
+            .banner-content p {
+                font-size: 0.9rem;
+            }
+            
+            .banner-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            
+            /* 直播页面移动端适配 */
+            .bilibili-player-wrapper {
+                max-width: 100%;
+                padding-top: 56.25%; /* 保持16:9比例 */
+            }
+            
+            .scroll-indicator {
+                bottom: 20px;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .welcome-section h1 {
+                font-size: 2rem;
+            }
+            
+            .welcome-section p {
+                font-size: 1rem;
+            }
+            
+            .current-time {
+                font-size: 1.8rem;
+            }
+            
+            .current-date {
+                font-size: 1rem;
+            }
+            
+            .music-player {
+                padding: 15px;
+            }
+            
+            .banner-slide {
+                height: 150px;
+            }
+            
+            .banner-content h3 {
+                font-size: 1.5rem;
+            }
+            
+            .banner-content p {
+                font-size: 0.8rem;
+            }
+            
+            .banner-dot {
+                width: 10px;
+                height: 10px;
+            }
+            
+            .link-card {
+                padding: 15px;
+            }
+            
+            .link-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+            
+            .link-text {
+                font-size: 1rem;
+            }
+            
+            /* 直播页面小屏幕适配 */
+            .bilibili-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .bilibili-header p {
+                font-size: 0.9rem;
             }
         }
     </style>
 </head>
 <body>
+    <!-- 导航栏 -->
     <header>
         <div class="container">
             <nav>
@@ -964,12 +1198,15 @@
         </div>
     </header>
 
+    <!-- 页面容器 -->
     <div class="pages-container">
         <!-- 首页 -->
         <section id="home" class="page home-page active">
             <div class="container">
                 <div class="main-content">
+                    <!-- 顶部内容区（只有音乐） -->
                     <div class="top-content">
+                        <!-- 音乐播放器 -->
                         <div class="music-player fade-in delay-1 card-hover">
                             <div class="player-controls">
                                 <div class="song-info">
@@ -1000,28 +1237,41 @@
                                     <span id="totalTime">0:00</span>
                                 </div>
                             </div>
+                            
+                            <!-- 模式切换 -->
                             <div class="mode-switcher">
                                 <button class="mode-btn active" data-mode="playlist">歌单ID</button>
                                 <button class="mode-btn" data-mode="songId">歌曲ID</button>
                                 <button class="mode-btn" data-mode="customUrl">自定义链接</button>
                             </div>
+                            
+                            <!-- 输入区域 -->
                             <div class="input-areas">
+                                <!-- 歌单ID输入 -->
                                 <div class="input-area active" id="playlistArea">
                                     <input type="text" class="playlist-input" id="playlistInput" placeholder="输入网易云歌单ID (例如: 3778678)">
                                     <button class="playlist-load-btn" id="playlistLoadBtn">加载</button>
                                 </div>
+                                
+                                <!-- 歌曲ID输入 -->
                                 <div class="input-area" id="songIdArea">
                                     <input type="text" class="song-id-input" id="songIdInput" placeholder="输入网易云歌曲ID (例如: 1867217766)">
                                     <button class="song-id-load-btn" id="songIdLoadBtn">加载</button>
                                 </div>
+                                
+                                <!-- 自定义链接输入 -->
                                 <div class="input-area" id="customUrlArea">
                                     <input type="text" class="custom-url-input" id="customUrlInput" placeholder="输入音乐直链URL">
                                     <button class="custom-url-load-btn" id="customUrlLoadBtn">加载</button>
                                 </div>
                             </div>
+                            
+                            <!-- 状态消息 -->
                             <div class="status-message-container">
                                 <div class="status-message" id="statusMessage"></div>
                             </div>
+                            
+                            <!-- 音乐可视化 -->
                             <div class="visualizer" id="visualizer">
                                 <div class="bar"></div>
                                 <div class="bar"></div>
@@ -1036,11 +1286,15 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- 搜索区域 -->
                     <div class="search-area">
                         <div class="welcome-section fade-in delay-2">
                             <h1>你好，我是<span class="highlight gradient-text">创新者</span></h1>
                             <p>欢迎来到我的个人空间。这里展示我的作品、思考和创意。探索、发现并与我联系。</p>
                         </div>
+                        
+                        <!-- 搜索框 -->
                         <div class="search-container fade-in delay-2">
                             <div class="search-box card-hover">
                                 <input type="text" class="search-input" placeholder="输入关键词搜索..." id="searchInput">
@@ -1048,12 +1302,16 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- 时间区域 -->
                     <div class="time-area">
                         <div class="time-widget fade-in delay-3 card-hover">
                             <div class="current-time" id="currentTime">00:00:00</div>
                             <div class="current-date" id="currentDate">2023年10月1日 星期日</div>
                         </div>
                     </div>
+                    
+                    <!-- 滚动指示器 -->
                     <div class="scroll-indicator">
                         向下滚动查看网址导航
                         <i class="fas fa-chevron-down"></i>
@@ -1062,9 +1320,10 @@
             </div>
         </section>
 
-        <!-- 网址导航页 -->
+        <!-- 网址导航页面 -->
         <section id="links-page" class="page links-page inactive">
-            <div class="container">
+            <div class="links-container">
+                <!-- Banner轮播模块 -->
                 <div class="banner-container card-hover">
                     <div class="banner-slider" id="bannerSlider">
                         <div class="banner-slide" style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));" data-href="https://example.com/tech">
@@ -1086,22 +1345,28 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- Banner导航按钮 -->
                     <button class="banner-nav banner-prev" id="bannerPrev">
                         <i class="fas fa-chevron-left"></i>
                     </button>
                     <button class="banner-nav banner-next" id="bannerNext">
                         <i class="fas fa-chevron-right"></i>
                     </button>
+                    
+                    <!-- Banner指示点 -->
                     <div class="banner-dots" id="bannerDots">
                         <div class="banner-dot active" data-index="0"></div>
                         <div class="banner-dot" data-index="1"></div>
                         <div class="banner-dot" data-index="2"></div>
                     </div>
                 </div>
+                
                 <div class="links-header">
                     <h2 class="gradient-text">常用网址导航</h2>
                     <p>这里是我经常访问的网站集合，点击即可快速访问</p>
                 </div>
+                
                 <div class="links-grid">
                     <a href="https://www.baidu.com" target="_blank" class="link-card card-hover">
                         <div class="link-icon" style="background: #2932e1;">
@@ -1179,15 +1444,17 @@
             </div>
         </section>
 
-        <!-- 直播页 -->
+        <!-- B站直播页面 -->
         <section id="bilibili-page" class="page bilibili-page inactive">
-            <div class="container">
+            <div class="bilibili-container">
                 <div class="bilibili-header">
                     <h2 class="gradient-text">B站直播</h2>
                     <p>观看精彩的B站直播内容，与主播互动交流</p>
                 </div>
+                
                 <div class="bilibili-player-container">
                     <div class="bilibili-player-wrapper card-hover">
+                        <!-- 修复移动端直播播放问题，使用更兼容的嵌入代码 -->
                         <iframe class="adaptive-iframe" 
                                 src="https://www.bilibili.com/blackboard/live/live-activity-player.html?cid=30778828&quality=0" 
                                 frameborder="no" 
@@ -1199,63 +1466,73 @@
                         </iframe>
                     </div>
                 </div>
-                <div class="bilibili-links">
-                    <a href="https://live.bilibili.com" target="_blank" class="bilibili-link-card">
-                        <div class="bilibili-link-icon" style="background: #fb7299;">
+                
+                <div class="links-grid">
+                    <a href="https://live.bilibili.com" target="_blank" class="link-card card-hover">
+                        <div class="link-icon" style="background: #fb7299;">
                             <i class="fas fa-home"></i>
                         </div>
-                        <div class="bilibili-link-text">B站直播首页</div>
+                        <div class="link-text">B站直播首页</div>
                     </a>
-                    <a href="https://www.bilibili.com/v/popular" target="_blank" class="bilibili-link-card">
-                        <div class="bilibili-link-icon" style="background: #00a1d6;">
+                    <a href="https://www.bilibili.com/v/popular" target="_blank" class="link-card card-hover">
+                        <div class="link-icon" style="background: #00a1d6;">
                             <i class="fas fa-fire"></i>
                         </div>
-                        <div class="bilibili-link-text">热门视频</div>
+                        <div class="link-text">热门视频</div>
                     </a>
-                    <a href="https://www.bilibili.com/v/game" target="_blank" class="bilibili-link-card">
-                        <div class="bilibili-link-icon" style="background: #ff9800;">
+                    <a href="https://www.bilibili.com/v/game" target="_blank" class="link-card card-hover">
+                        <div class="link-icon" style="background: #ff9800;">
                             <i class="fas fa-gamepad"></i>
                         </div>
-                        <div class="bilibili-link-text">游戏区</div>
+                        <div class="link-text">游戏区</div>
                     </a>
-                    <a href="https://www.bilibili.com/v/kichiku" target="_blank" class="bilibili-link-card">
-                        <div class="bilibili-link-icon" style="background: #4caf50;">
+                    <a href="https://www.bilibili.com/v/kichiku" target="_blank" class="link-card card-hover">
+                        <div class="link-icon" style="background: #4caf50;">
                             <i class="fas fa-theater-masks"></i>
                         </div>
-                        <div class="bilibili-link-text">鬼畜区</div>
+                        <div class="link-text">鬼畜区</div>
                     </a>
                 </div>
             </div>
         </section>
     </div>
 
+    <!-- 页脚 -->
     <footer>
         <div class="container">
             <p>© 2023 个人主页 | 简约大气设计</p>
         </div>
     </footer>
 
+    <!-- 音频元素 -->
     <audio id="audioPlayer" preload="metadata"></audio>
 
     <script>
-        /* =================  原脚本完全保留  ================= */
+        // 移动端菜单功能
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const navLinks = document.getElementById('navLinks');
-        mobileMenuBtn.addEventListener('click', () => navLinks.classList.toggle('active'));
-
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+        });
+        
+        // 页面切换功能
         const homePage = document.getElementById('home');
         const linksPage = document.getElementById('links-page');
         const bilibiliPage = document.getElementById('bilibili-page');
         const navLinkItems = document.querySelectorAll('.nav-link');
-
+        
+        // 切换页面函数
         function switchPage(targetPage) {
+            // 重置所有页面状态
             homePage.classList.remove('active');
             homePage.classList.add('inactive');
             linksPage.classList.remove('active');
             linksPage.classList.add('inactive');
             bilibiliPage.classList.remove('active');
             bilibiliPage.classList.add('inactive');
-
+            
+            // 激活目标页面
             if (targetPage === 'home') {
                 homePage.classList.add('active');
                 homePage.classList.remove('inactive');
@@ -1266,19 +1543,22 @@
                 bilibiliPage.classList.add('active');
                 bilibiliPage.classList.remove('inactive');
             }
-
+            
+            // 更新导航链接状态
             navLinkItems.forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('data-target') === targetPage) {
                     link.classList.add('active');
                 }
             });
-
+            
+            // 移动端切换页面后关闭菜单
             if (window.innerWidth <= 768) {
                 navLinks.classList.remove('active');
             }
         }
-
+        
+        // 导航链接点击事件
         navLinkItems.forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -1286,62 +1566,79 @@
                 switchPage(target);
             });
         });
-
+        
+        // 鼠标滚轮切换页面
         let isScrolling = false;
         let currentPage = 'home';
+        
         window.addEventListener('wheel', function(e) {
             if (isScrolling) return;
+            
             isScrolling = true;
-
+            
             if (e.deltaY > 0) {
+                // 向下滚动，切换到下一个页面
                 if (currentPage === 'home') {
                     currentPage = 'links-page';
                 } else if (currentPage === 'links-page') {
                     currentPage = 'bilibili-page';
                 } else {
-                    currentPage = 'home';
+                    currentPage = 'home'; // 循环回到首页
                 }
             } else {
+                // 向上滚动，切换到上一个页面
                 if (currentPage === 'bilibili-page') {
                     currentPage = 'links-page';
                 } else if (currentPage === 'links-page') {
                     currentPage = 'home';
                 } else {
-                    currentPage = 'bilibili-page';
+                    currentPage = 'bilibili-page'; // 循环到B站直播页
                 }
             }
-
+            
             switchPage(currentPage);
+            
             setTimeout(() => {
                 isScrolling = false;
-            }, 800);
+            }, 800); // 与页面切换动画时间相同
         });
-
+        
+        // 搜索功能
         document.getElementById('searchButton').addEventListener('click', function() {
             const query = document.getElementById('searchInput').value.trim();
             if (query) {
+                // 使用百度搜索
                 window.open('https://www.baidu.com/s?wd=' + encodeURIComponent(query), '_blank');
             }
         });
+        
         document.getElementById('searchInput').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 document.getElementById('searchButton').click();
             }
         });
-
+        
+        // 时间更新功能
         function updateTime() {
             const now = new Date();
+            
+            // 24小时制时间格式
             const hours = String(now.getHours()).padStart(2, '0');
             const minutes = String(now.getMinutes()).padStart(2, '0');
             const seconds = String(now.getSeconds()).padStart(2, '0');
+            
             document.getElementById('currentTime').textContent = `${hours}:${minutes}:${seconds}`;
+            
+            // 日期显示
             const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
             document.getElementById('currentDate').textContent = now.toLocaleDateString('zh-CN', options);
         }
+        
+        // 初始更新时间并设置定时器
         updateTime();
         setInterval(updateTime, 1000);
-
-        /* ========= 音乐播放器逻辑（简略）  ========= */
+        
+        // 音乐播放器功能
         const audioPlayer = document.getElementById('audioPlayer');
         const playBtn = document.getElementById('playBtn');
         const playIcon = document.getElementById('playIcon');
@@ -1354,41 +1651,63 @@
         const visualizer = document.getElementById('visualizer');
         const bars = visualizer.querySelectorAll('.bar');
         const statusMessage = document.getElementById('statusMessage');
-
+        
+        // 模式切换相关元素
         const modeBtns = document.querySelectorAll('.mode-btn');
         const inputAreas = document.querySelectorAll('.input-area');
+        
+        // 播放列表和当前状态
         let playlist = [];
         let currentSongIndex = 0;
         let isPlaying = false;
-
+        
+        // 显示状态消息
         function showStatusMessage(message, isError = false) {
             statusMessage.textContent = message;
             statusMessage.className = 'status-message ' + (isError ? 'status-error' : 'status-success');
             statusMessage.classList.add('show');
-            setTimeout(() => statusMessage.classList.remove('show'), 3000);
+            
+            // 3秒后自动隐藏
+            setTimeout(() => {
+                statusMessage.classList.remove('show');
+            }, 3000);
         }
-
+        
+        // 模式切换功能
         modeBtns.forEach(btn => {
             btn.addEventListener('click', function() {
                 const mode = this.getAttribute('data-mode');
+                
+                // 更新按钮状态
                 modeBtns.forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
+                
+                // 显示对应的输入区域
                 inputAreas.forEach(area => area.classList.remove('active'));
                 document.getElementById(`${mode}Area`).classList.add('active');
             });
         });
-
+        
+        // 加载歌单功能
         async function loadPlaylist(playlistId, silent = false) {
             try {
                 if (!silent) {
                     songTitle.textContent = "加载中...";
                     songArtist.textContent = "网易云音乐";
                     showStatusMessage("正在加载歌单，请稍候...");
+                } else {
+                    // 静默加载，只更新标题和艺术家为加载中，但不显示状态消息
+                    songTitle.textContent = "加载中...";
+                    songArtist.textContent = "网易云音乐";
                 }
+                
+                // 使用代理服务器获取歌单信息（避免CORS问题）
                 const proxyUrl = 'https://api.allorigins.win/raw?url=';
                 const playlistUrl = `https://music.163.com/api/playlist/detail?id=${playlistId}`;
+                
                 const response = await fetch(proxyUrl + encodeURIComponent(playlistUrl));
                 const data = await response.json();
+                
                 if (data.result && data.result.tracks) {
                     playlist = data.result.tracks.map(track => ({
                         id: track.id,
@@ -1396,32 +1715,165 @@
                         artist: track.artists.map(artist => artist.name).join(', '),
                         duration: track.duration
                     }));
+                    
                     if (playlist.length > 0) {
                         currentSongIndex = 0;
                         loadSong(currentSongIndex);
                         playSong();
-                        if (!silent) showStatusMessage(`成功加载歌单，共${playlist.length}首歌曲`);
+                        if (!silent) {
+                            showStatusMessage(`成功加载歌单，共${playlist.length}首歌曲`);
+                        }
                     } else {
-                        if (!silent) showStatusMessage("歌单为空，请尝试其他歌单ID", true);
+                        songTitle.textContent = "歌单为空";
+                        songArtist.textContent = "请尝试其他歌单ID";
+                        if (!silent) {
+                            showStatusMessage("歌单为空，请尝试其他歌单ID", true);
+                        }
                     }
                 } else {
-                    if (!silent) showStatusMessage("加载失败，请检查歌单ID是否正确", true);
+                    songTitle.textContent = "加载失败";
+                    songArtist.textContent = "请检查歌单ID是否正确";
+                    if (!silent) {
+                        showStatusMessage("加载失败，请检查歌单ID是否正确", true);
+                    }
                 }
             } catch (error) {
-                if (!silent) showStatusMessage("网络错误，请重试", true);
+                console.error("加载歌单时出错:", error);
+                songTitle.textContent = "加载失败";
+                songArtist.textContent = "网络错误，请重试";
+                if (!silent) {
+                    showStatusMessage("网络错误，请重试", true);
+                }
             }
         }
-
+        
+        // 加载单曲功能
+        async function loadSongById(songId) {
+            try {
+                songTitle.textContent = "加载中...";
+                songArtist.textContent = "网易云音乐";
+                showStatusMessage("正在加载歌曲，请稍候...");
+                
+                // 使用代理服务器获取歌曲信息
+                const proxyUrl = 'https://api.allorigins.win/raw?url=';
+                const songUrl = `https://music.163.com/api/song/detail/?id=${songId}&ids=[${songId}]`;
+                
+                const response = await fetch(proxyUrl + encodeURIComponent(songUrl));
+                const data = await response.json();
+                
+                if (data.songs && data.songs.length > 0) {
+                    const song = data.songs[0];
+                    playlist = [{
+                        id: song.id,
+                        title: song.name,
+                        artist: song.artists.map(artist => artist.name).join(', '),
+                        duration: song.duration
+                    }];
+                    
+                    currentSongIndex = 0;
+                    loadSong(currentSongIndex);
+                    playSong();
+                    showStatusMessage("成功加载歌曲");
+                } else {
+                    // 如果API无法获取信息，尝试直接加载歌曲
+                    playlist = [{
+                        id: songId,
+                        title: '未知歌曲',
+                        artist: '未知艺术家',
+                        duration: 0
+                    }];
+                    
+                    currentSongIndex = 0;
+                    loadSong(currentSongIndex);
+                    playSong();
+                    showStatusMessage("歌曲加载成功，但无法获取详细信息");
+                }
+            } catch (error) {
+                console.error("加载歌曲时出错:", error);
+                // 如果API失败，尝试直接加载歌曲
+                playlist = [{
+                    id: songId,
+                    title: '未知歌曲',
+                    artist: '未知艺术家',
+                    duration: 0
+                }];
+                
+                currentSongIndex = 0;
+                loadSong(currentSongIndex);
+                playSong();
+                showStatusMessage("歌曲加载成功，但无法获取详细信息");
+            }
+        }
+        
+        // 加载自定义链接
+        function loadCustomUrl(url) {
+            try {
+                songTitle.textContent = "加载中...";
+                songArtist.textContent = "自定义音乐";
+                showStatusMessage("正在加载自定义音乐，请稍候...");
+                
+                // 验证URL格式
+                if (!url.startsWith('http://') && !url.startsWith('https://')) {
+                    url = 'https://' + url;
+                }
+                
+                // 创建新的URL对象验证有效性
+                new URL(url);
+                
+                playlist = [{
+                    id: 'custom',
+                    title: '自定义音乐',
+                    artist: '未知艺术家',
+                    duration: 0
+                }];
+                
+                currentSongIndex = 0;
+                audioPlayer.src = url;
+                songTitle.textContent = '自定义音乐';
+                songArtist.textContent = '未知艺术家';
+                totalTimeDisplay.textContent = '0:00';
+                
+                // 尝试播放以验证链接
+                const playPromise = audioPlayer.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        isPlaying = true;
+                        playIcon.classList.remove('fa-play');
+                        playIcon.classList.add('fa-pause');
+                        updateVisualizer();
+                        showStatusMessage("成功加载自定义音乐");
+                    }).catch(() => {
+                        showStatusMessage("音乐加载成功，但无法自动播放", true);
+                    });
+                }
+                
+            } catch (error) {
+                console.error("无效的URL:", error);
+                songTitle.textContent = "无效URL";
+                songArtist.textContent = "请输入有效的音乐链接";
+                showStatusMessage("无效URL，请输入有效的音乐链接", true);
+            }
+        }
+        
+        // 加载歌曲
         function loadSong(index) {
             if (playlist.length === 0) return;
+            
             const song = playlist[index];
+            
+            // 使用网易云音乐的外链格式
             if (song.id !== 'custom') {
                 audioPlayer.src = `https://music.163.com/song/media/outer/url?id=${song.id}.mp3`;
             }
+            
             songTitle.textContent = song.title;
             songArtist.textContent = song.artist;
+            
+            // 重置进度条
             progress.style.width = '0%';
             currentTimeDisplay.textContent = '0:00';
+            
+            // 设置总时长显示
             if (song.duration > 0) {
                 const totalMinutes = Math.floor(song.duration / 1000 / 60);
                 const totalSeconds = Math.floor((song.duration / 1000) % 60);
@@ -1430,84 +1882,107 @@
                 totalTimeDisplay.textContent = '0:00';
             }
         }
-
+        
+        // 播放/暂停功能
         function togglePlay() {
             if (playlist.length === 0) {
-                loadPlaylist('3778678');
+                // 如果没有加载音乐，尝试加载默认歌单
+                loadPlaylist('3778678'); // 默认热歌榜
                 return;
             }
+            
             if (isPlaying) {
                 pauseSong();
             } else {
                 playSong();
             }
         }
-
+        
         function playSong() {
             if (playlist.length === 0) return;
+            
             isPlaying = true;
             playIcon.classList.remove('fa-play');
             playIcon.classList.add('fa-pause');
             audioPlayer.play();
             updateVisualizer();
         }
-
+        
         function pauseSong() {
             isPlaying = false;
             playIcon.classList.remove('fa-pause');
             playIcon.classList.add('fa-play');
             audioPlayer.pause();
         }
-
+        
+        // 下一首/上一首功能
         function nextSong() {
             if (playlist.length === 0) return;
+            
             currentSongIndex = (currentSongIndex + 1) % playlist.length;
             loadSong(currentSongIndex);
-            if (isPlaying) audioPlayer.play();
+            if (isPlaying) {
+                audioPlayer.play();
+            }
         }
-
+        
         function prevSong() {
             if (playlist.length === 0) return;
+            
             currentSongIndex = (currentSongIndex - 1 + playlist.length) % playlist.length;
             loadSong(currentSongIndex);
-            if (isPlaying) audioPlayer.play();
+            if (isPlaying) {
+                audioPlayer.play();
+            }
         }
-
+        
+        // 更新进度条
         function updateProgress() {
             const { currentTime, duration } = audioPlayer;
             if (duration) {
                 const progressPercent = (currentTime / duration) * 100;
                 progress.style.width = `${progressPercent}%`;
+                
+                // 更新当前时间显示
                 const currentMinutes = Math.floor(currentTime / 60);
                 const currentSeconds = Math.floor(currentTime % 60);
                 currentTimeDisplay.textContent = `${currentMinutes}:${currentSeconds.toString().padStart(2, '0')}`;
             }
         }
-
+        
+        // 设置进度
         function setProgress(e) {
             if (playlist.length === 0) return;
+            
             const width = this.clientWidth;
             const clickX = e.offsetX;
             const duration = audioPlayer.duration;
+            
             audioPlayer.currentTime = (clickX / width) * duration;
         }
-
+        
+        // 音乐可视化效果
         function updateVisualizer() {
             if (!isPlaying) return;
+            
+            // 随机生成柱状图高度
             bars.forEach(bar => {
                 const randomHeight = Math.random() * 100;
                 bar.style.height = `${randomHeight}%`;
             });
+            
             requestAnimationFrame(updateVisualizer);
         }
-
+        
+        // 事件监听
         playBtn.addEventListener('click', togglePlay);
         nextBtn.addEventListener('click', nextSong);
         prevBtn.addEventListener('click', prevSong);
         audioPlayer.addEventListener('timeupdate', updateProgress);
         audioPlayer.addEventListener('ended', nextSong);
         progressBar.addEventListener('click', setProgress);
-
+        
+        // 歌单加载按钮
         document.getElementById('playlistLoadBtn').addEventListener('click', () => {
             const playlistId = document.getElementById('playlistInput').value.trim();
             if (playlistId) {
@@ -1516,7 +1991,8 @@
                 showStatusMessage("请输入歌单ID", true);
             }
         });
-
+        
+        // 歌曲ID加载按钮
         document.getElementById('songIdLoadBtn').addEventListener('click', () => {
             const songId = document.getElementById('songIdInput').value.trim();
             if (songId) {
@@ -1525,7 +2001,8 @@
                 showStatusMessage("请输入歌曲ID", true);
             }
         });
-
+        
+        // 自定义链接加载按钮
         document.getElementById('customUrlLoadBtn').addEventListener('click', () => {
             const url = document.getElementById('customUrlInput').value.trim();
             if (url) {
@@ -1534,18 +2011,30 @@
                 showStatusMessage("请输入音乐链接", true);
             }
         });
-
-        ['playlistInput', 'songIdInput', 'customUrlInput'].forEach(id => {
-            document.getElementById(id).addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    this.nextElementSibling.click();
-                }
-            });
+        
+        // 为输入框添加回车键支持
+        document.getElementById('playlistInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('playlistLoadBtn').click();
+            }
         });
-
-        loadPlaylist('3778678', true); // 静默加载默认歌单
-
-        /* =================  Banner 轮播  ================= */
+        
+        document.getElementById('songIdInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('songIdLoadBtn').click();
+            }
+        });
+        
+        document.getElementById('customUrlInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('customUrlLoadBtn').click();
+            }
+        });
+        
+        // 初始静默加载一个默认歌单
+        loadPlaylist('3778678', true); // 默认热歌榜，静默加载
+        
+        // Banner轮播功能
         const bannerSlider = document.getElementById('bannerSlider');
         const bannerDots = document.querySelectorAll('.banner-dot');
         const bannerPrev = document.getElementById('bannerPrev');
@@ -1553,45 +2042,53 @@
         const bannerSlides = document.querySelectorAll('.banner-slide');
         let currentBannerIndex = 0;
         let bannerInterval;
-
+        
+        // 切换到指定banner
         function goToBanner(index) {
             currentBannerIndex = index;
             bannerSlider.style.transform = `translateX(-${currentBannerIndex * 100}%)`;
+            
+            // 更新指示点状态
             bannerDots.forEach((dot, i) => {
                 dot.classList.toggle('active', i === currentBannerIndex);
             });
         }
-
+        
+        // 下一个banner
         function nextBanner() {
             const nextIndex = (currentBannerIndex + 1) % bannerDots.length;
             goToBanner(nextIndex);
         }
-
+        
+        // 上一个banner
         function prevBanner() {
             const prevIndex = (currentBannerIndex - 1 + bannerDots.length) % bannerDots.length;
             goToBanner(prevIndex);
         }
-
+        
+        // 自动轮播
         function startBannerInterval() {
             bannerInterval = setInterval(nextBanner, 5000);
         }
-
+        
+        // 停止自动轮播
         function stopBannerInterval() {
             clearInterval(bannerInterval);
         }
-
+        
+        // 事件监听
         bannerNext.addEventListener('click', () => {
             nextBanner();
             stopBannerInterval();
             startBannerInterval();
         });
-
+        
         bannerPrev.addEventListener('click', () => {
             prevBanner();
             stopBannerInterval();
             startBannerInterval();
         });
-
+        
         bannerDots.forEach(dot => {
             dot.addEventListener('click', function() {
                 const index = parseInt(this.getAttribute('data-index'));
@@ -1600,7 +2097,8 @@
                 startBannerInterval();
             });
         });
-
+        
+        // 为每个banner-slide添加点击事件，实现整个图片可点击跳转
         bannerSlides.forEach(slide => {
             slide.addEventListener('click', function() {
                 const href = this.getAttribute('data-href');
@@ -1609,24 +2107,21 @@
                 }
             });
         });
-
+        
+        // 鼠标悬停时暂停自动轮播
         bannerSlider.parentElement.addEventListener('mouseenter', stopBannerInterval);
         bannerSlider.parentElement.addEventListener('mouseleave', startBannerInterval);
-
+        
+        // 开始自动轮播
         startBannerInterval();
-
-        /* =================  移动端强制双列  ================= */
-        document.addEventListener('DOMContentLoaded', () => {
-            const mm = window.matchMedia('(max-width: 768px)');
-            const fixGrid = () => {
-                if (mm.matches) {
-                    document.querySelectorAll('.links-grid').forEach(g => {
-                        g.style.gridTemplateColumns = 'repeat(2, 1fr)';
-                    });
-                }
-            };
-            mm.addListener(fixGrid);
-            fixGrid();
+        
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            // 初始化页面动画
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(el => {
+                el.classList.add('fade-in');
+            });
         });
     </script>
 </body>
