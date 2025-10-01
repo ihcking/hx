@@ -502,16 +502,16 @@
             margin: 0 auto;
         }
         
-        /* B站直播页面样式 */
+        /* B站直播页面样式 - 增大主内容区域 */
         .bilibili-container {
-            max-width: 1400px;
+            max-width: 1600px;
             margin: 0 auto;
             padding: 0 40px;
         }
         
         .bilibili-header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
         
         .bilibili-header h2 {
@@ -527,11 +527,12 @@
             margin: 0 auto;
         }
         
-        /* 直播播放器容器 - 16:9比例 */
+        /* 直播播放器容器 - 增大尺寸 */
         .bilibili-player-container {
             display: flex;
             justify-content: center;
             margin-bottom: 40px;
+            width: 100%;
         }
         
         .bilibili-player-wrapper {
@@ -980,6 +981,11 @@
             .banner-content p {
                 font-size: 1rem;
             }
+            
+            /* 直播页面平板端适配 */
+            .bilibili-player-wrapper {
+                max-width: 1000px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -990,6 +996,7 @@
             /* 修复移动端导航栏遮挡内容问题 */
             .home-page, .links-page, .bilibili-page {
                 padding-top: 80px;
+                height: calc(100vh - 80px);
             }
             
             /* 导航栏移动端适配 */
@@ -1096,6 +1103,7 @@
             
             /* 直播页面移动端适配 */
             .bilibili-player-wrapper {
+                max-width: 100%;
                 padding-top: 56.25%; /* 保持16:9比例 */
             }
             
@@ -1159,6 +1167,15 @@
             
             .link-text {
                 font-size: 1rem;
+            }
+            
+            /* 直播页面小屏幕适配 */
+            .bilibili-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .bilibili-header p {
+                font-size: 0.9rem;
             }
         }
     </style>
