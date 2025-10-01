@@ -39,8 +39,9 @@
             height: 100vh;
         }
         
-        .container {
-            max-width: 1600px;
+        /* 统一所有页面的容器宽度 */
+        .container, .links-container, .bilibili-container {
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 40px;
         }
@@ -477,12 +478,6 @@
         }
         
         /* 网址导航完整页面样式 */
-        .links-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
-        
         .links-header {
             text-align: center;
             margin-bottom: 50px;
@@ -502,18 +497,9 @@
         }
         
         /* B站直播页面样式 - 完全重写以增大直播区域 */
-        .bilibili-container {
-            max-width: 1600px;
-            margin: 0 auto;
-            padding: 0 40px;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-        
         .bilibili-header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px; /* 减少标题与播放器之间的间距 */
         }
         
         .bilibili-header h2 {
@@ -531,18 +517,17 @@
         
         /* 直播播放器容器 - 16:9比例，占据更多空间 */
         .bilibili-player-container {
-            flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
             width: 100%;
             max-width: 100%;
-            margin-bottom: 30px;
+            margin-bottom: 20px; /* 减少与底部导航的间距 */
         }
         
         .bilibili-player-wrapper {
             width: 100%;
-            max-width: 1400px;
+            max-width: 1200px;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: var(--shadow-medium);
@@ -559,13 +544,14 @@
             border: none;
         }
         
-        /* 直播页面底部链接 */
+        /* 直播页面底部链接 - 上移并调整间距 */
         .bilibili-links {
             display: flex;
             justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
             padding: 0 20px 30px;
+            margin-top: 10px; /* 减少与播放器的间距 */
         }
         
         .bilibili-link-card {
